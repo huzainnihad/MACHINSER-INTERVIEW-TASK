@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_retention_release" name="Release Retention"
+              parent="account.menu_finance_receivables" action="retention_advance.action_retention_release_wizard"
+              sequence="40" groups="account.group_account_invoice"/>
+    <menuitem id="menu_retention_report" name="Retention and Advance"
+              parent="account.menu_finance_reports" action="retention_advance.action_retention_report"
+              sequence="60" groups="account.group_account_readonly"/>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document_retention" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='total']" position="after">
+            <div id="retention_summary" class="clearfix row"
+                 t-if="o.move_type == 'out_invoice' and (o.retention_amount or o.advance_recovery_amount)">
+                <div class="ms-auto">
+                    <table class="table table-sm table-borderless avoid-page-break-inside">
+                        <tr>
+                            <td>Invoice total</td>
+                            <td class="text-end"><span t-field="o.amount_total"/></td>
+                        </tr>
+                        <tr t-if="o.retention_amount">
+                            <td>Less retention (<span t-out="o.retention_percent" t-options="{'widget': 'float', 'precision': 2}"/>%)</td>
+                            <td class="text-end">- <span t-field="o.retention_amount"/></td>
+                        </tr>
+                        <tr t-if="o.advance_recovery_amount">
+                            <td>Less advance recovery</td>
+                            <td class="text-end">- <span t-field="o.advance_recovery_amount"/></td>
+                        </tr>
+                        <tr class="border-black fw-bold">
+                            <td>Amount to pay now</td>
+                            <td class="text-end"><span t-field="o.amount_to_pay_now"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

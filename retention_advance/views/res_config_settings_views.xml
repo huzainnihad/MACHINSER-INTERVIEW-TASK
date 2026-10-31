@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_retention" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.retention</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='fiscal_localization_setting_container']" position="after">
+                <block title="Retention and Advance" name="retention_setting_container">
+                    <setting string="Retention" company_dependent="1"
+                             help="Amount withheld by the client on each invoice until the project is handed over.">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="retention_account_id" string="Retention Receivable Account" class="col-lg-4 o_light_label"/>
+                                <field name="retention_account_id"/>
+                            </div>
+                            <div class="row mt8">
+                                <label for="retention_default_percent" string="Default Retention %" class="col-lg-4 o_light_label"/>
+                                <field name="retention_default_percent"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

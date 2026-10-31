@@ -1,0 +1,22 @@
+{
+    'name': 'Retention and Advance on Invoices',
+    'version': '19.0.1.0.0',
+    'author': 'Candidate',
+    'category': 'Accounting/Accounting',
+    'summary': 'Retention holdback and advance recovery on customer progress invoices',
+    'depends': ['account', 'sale'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/res_config_settings_views.xml',
+        'views/account_move_views.xml',
+        'views/account_payment_views.xml',
+        'views/sale_order_views.xml',
+        'wizard/retention_release_views.xml',
+        'wizard/retention_report_views.xml',
+        'views/menus.xml',
+        'report/invoice_report.xml',
+    ],
+    'license': 'LGPL-3',
+    'application': False,
+    'installable': True,
+}

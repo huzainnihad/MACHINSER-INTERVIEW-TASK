@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_payment_form_retention" model="ir.ui.view">
+        <field name="name">account.payment.form.retention</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="(//field[@name='payment_method_line_id'])[last()]" position="after">
+                <field name="is_advance" invisible="payment_type != 'inbound' or partner_type != 'customer'"
+                       readonly="state != 'draft'"/>
+                <field name="advance_sale_order_id" invisible="not is_advance"
+                       domain="[('partner_id', 'child_of', partner_id)]" options="{'no_create': True}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

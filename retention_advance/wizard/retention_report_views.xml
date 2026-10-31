@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="retention_report_wizard_form" model="ir.ui.view">
+        <field name="name">retention.report.wizard.form</field>
+        <field name="model">retention.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Retention and Advance Report">
+                <header>
+                    <button name="action_generate" type="object" string="Generate" class="btn-primary"/>
+                    <button name="action_export_xlsx" type="object" string="Export to Excel"/>
+                </header>
+                <group>
+                    <group>
+                        <field name="as_of_date"/>
+                        <field name="partner_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                    </group>
+                    <group>
+                        <field name="company_ids" widget="many2many_tags" groups="base.group_multi_company"
+                               options="{'no_create': True}"/>
+                    </group>
+                </group>
+                <field name="line_ids" nolabel="1">
+                    <list create="0" delete="0" edit="0">
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="partner_id"/>
+                        <field name="sale_order_id"/>
+                        <field name="total_invoiced" sum="Total"/>
+                        <field name="retention_held" sum="Total"/>
+                        <field name="retention_released" sum="Total"/>
+                        <field name="retention_balance" sum="Total"/>
+                        <field name="advance_received" sum="Total"/>
+                        <field name="advance_recovered" sum="Total"/>
+                        <field name="advance_balance" sum="Total"/>
+                        <field name="currency_id" column_invisible="1"/>
+                    </list>
+                </field>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_retention_report" model="ir.actions.act_window">
+        <field name="name">Retention and Advance Report</field>
+        <field name="res_model">retention.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+</odoo>

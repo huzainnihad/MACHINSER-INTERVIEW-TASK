@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_retention_release_wizard,retention.release.wizard,model_retention_release_wizard,account.group_account_invoice,1,1,1,1
+access_retention_release_wizard_line,retention.release.wizard.line,model_retention_release_wizard_line,account.group_account_invoice,1,1,1,1
+access_retention_report_wizard,retention.report.wizard,model_retention_report_wizard,account.group_account_invoice,1,1,1,1
+access_retention_report_line,retention.report.line,model_retention_report_line,account.group_account_invoice,1,1,1,1
